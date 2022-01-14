@@ -1,0 +1,20 @@
+.home-header{
+    background-color: #ff9999;
+    padding: 8px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.twoColoumnLayout{
+    display : flex;
+    flex-wrap: nowrap;
+}
+.twoColoumnLayout > *{
+    margin: 16px;
+}
+.twoColoumnLayout article{
+    flex-basis: calc(76% - 32px);
+}
+.twoColoumnLayout aside{
+    flex-basis: calc(24% - 32px);
+}
