@@ -96,15 +96,42 @@ export default function Header(props) {
         setSignInFormInputs(state);
       }
 
+
       const loginBtnHandler = (e)=>{
         if(loginFormInputs.username.length>0 && loginFormInputs.password.length>0){
           console.log('Logging in!', loginFormInputs)
         }
       }
 
-      const signInBtnHandler = (e)=>{
+      async function signIn(){
+        const rawData = {
+          "email_address": sigInFormInputs.email,
+          "first_name": sigInFormInputs.firstName,
+          "last_name": sigInFormInputs.lastName,
+          "mobile_number": sigInFormInputs.contact,
+          "password": sigInFormInputs.password
+        }
+        const rawResp = await fetch("http://localhost:8085/api/v1/signup",{
+            method:"POST",
+            headers :{
+                'Content-Type': 'application/json;charset=UTF-8'
+            },
+            body : JSON.stringify(rawData)
+        });
+        const res = await rawResp.json();
+        if(res.status === "ACTIVE"){
+          setIsRegistrationSuccessful(true);
+        }else if(rawResp.status === 422){
+          console.error("Already Existing User!")          
+        }
+        else{
+          console.error("Error while trying to register!")
+        }
+    }
+    
+      const signInBtnHandler = ()=>{
         if(sigInFormInputs.firstName.length>0 && sigInFormInputs.lastName.length>0 && sigInFormInputs.password.length>0 && sigInFormInputs.email.length>0 && sigInFormInputs.contact.length>0){
-          console.log('Signing in!', sigInFormInputs)
+          signIn();
         }
       }
 
