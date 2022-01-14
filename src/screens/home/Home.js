@@ -114,7 +114,7 @@ function Home(props) {
   }, []);
 
   const movieClickHandler = (id) => {
-    console.log(id);
+    props.history.push('/movie/' + id);
   };
 
   const filterHandler = (e)=>{
@@ -144,6 +144,8 @@ function Home(props) {
     }
     getMovies(queryString);
   }
+
+  
 
   return (
     <main>
