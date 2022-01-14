@@ -1,0 +1,29 @@
+.back-btn{
+    border: none;
+    outline: none;
+    margin: 8px 24px 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.details-container{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.details-container aside{
+    flex-basis: 20%;
+}
+.details-container article{
+    flex-basis: 60%;
+}
+.trailerContainer div{
+    margin-top: 16px;
+}
+
+.review-wrap svg.yellow{
+    fill: yellow;
+}
+.review-wrap svg.black{
+    fill: black;
+}

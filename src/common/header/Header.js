@@ -112,7 +112,7 @@ export default function Header(props) {
         <header className="app-header">
             <img src={logo} alt="logo image" className="logo"/>
             <div className="btns">
-            {props.isMoviePage && <Button variant="contained" color="primary">Book Show</Button>}
+            {props.isMoviePage && <Button variant="contained" color="primary" style={{marginRight : 24}} onClick={props.bookShowHandler}>Book Show</Button>}
             {isLoggedIn ? <Button variant="contained" color="default">Logout</Button> : <Button variant="contained" color="default" onClick={loginClickHandler}>Login</Button>}
             </div>
             <Modal
